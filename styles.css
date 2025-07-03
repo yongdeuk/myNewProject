@@ -57,6 +57,7 @@ h1 {
   border-radius: 12px;
   padding: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
 }
 
 canvas#goBoard {
@@ -65,6 +66,11 @@ canvas#goBoard {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   display: block;
   cursor: pointer;
+}
+
+#fireworkCanvas {
+  z-index: 10;
+  pointer-events: none;
 }
 
 .go-info {

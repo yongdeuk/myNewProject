@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>바둑 게임 - Go Game</title>
+  <title>오목 게임 - Gomoku Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="go-container">
-    <h1>바둑 게임</h1>
+    <h1>오목 게임</h1>
     <div class="mode-select">
       <label><input type="radio" name="mode" value="pvp" checked> 사람 vs 사람</label>
       <label><input type="radio" name="mode" value="ai"> 사람 vs AI</label>
       <button id="restartBtn">다시 시작</button>
     </div>
-    <div class="go-board-wrapper">
+    <div class="go-board-wrapper" style="position:relative;">
       <canvas id="goBoard" width="570" height="570"></canvas>
+      <canvas id="fireworkCanvas" width="570" height="570" style="position:absolute;left:0;top:0;pointer-events:none;"></canvas>
     </div>
     <div class="go-info">
       <div id="turnInfo">흑돌 차례</div>
       <div id="resultInfo"></div>
     </div>
     <div class="footer">
-      <span>Made with ♥ Go Game</span>
+      <span>Made with ♥ Gomoku Game</span>
     </div>
   </div>
   <script src="script.js"></script>

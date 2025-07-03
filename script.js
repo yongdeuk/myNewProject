@@ -110,7 +110,38 @@ function placeStone(x, y, color) {
 }
 
 function aiMove() {
-  // 아주 단순한 랜덤 AI (삼삼 금수는 피함)
+  // 1. AI가 이길 수 있는 수 찾기
+  for (let y = 0; y < SIZE; y++) {
+    for (let x = 0; x < SIZE; x++) {
+      if (board[y][x] === 0 && !isDoubleThree(x, y, 2)) {
+        board[y][x] = 2;
+        if (checkWin(x, y, 2)) {
+          placeStone(x, y, 2);
+          endGame('백돌(AI) 승리!');
+          board[y][x] = 0;
+          return;
+        }
+        board[y][x] = 0;
+      }
+    }
+  }
+  // 2. 플레이어가 이길 수 있는 수 막기
+  for (let y = 0; y < SIZE; y++) {
+    for (let x = 0; x < SIZE; x++) {
+      if (board[y][x] === 0 && !isDoubleThree(x, y, 2)) {
+        board[y][x] = 1;
+        if (checkWin(x, y, 1)) {
+          board[y][x] = 0;
+          placeStone(x, y, 2);
+          turn = 1;
+          updateTurnInfo();
+          return;
+        }
+        board[y][x] = 0;
+      }
+    }
+  }
+  // 3. 랜덤 (삼삼 금수는 피함)
   const empty = [];
   for (let y = 0; y < SIZE; y++) for (let x = 0; x < SIZE; x++)
     if (board[y][x] === 0 && (!isDoubleThree(x, y, 2))) empty.push({x, y});
