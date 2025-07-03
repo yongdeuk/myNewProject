@@ -3,30 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>그림판 - 웹 페인트 앱</title>
+  <title>바둑 게임 - Go Game</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="paint-container">
-    <h1>그림판</h1>
-    <div class="toolbar">
-      <label>
-        색상:
-        <input type="color" id="colorPicker" value="#222222">
-      </label>
-      <label>
-        굵기:
-        <input type="range" id="lineWidth" min="1" max="30" value="5">
-      </label>
-      <button id="eraserBtn" title="지우개">지우개</button>
-      <button id="clearBtn" title="전체 지우기">전체 지우기</button>
-      <button id="saveBtn" title="이미지 저장">이미지 저장</button>
+  <div class="go-container">
+    <h1>바둑 게임</h1>
+    <div class="mode-select">
+      <label><input type="radio" name="mode" value="pvp" checked> 사람 vs 사람</label>
+      <label><input type="radio" name="mode" value="ai"> 사람 vs AI</label>
+      <button id="restartBtn">다시 시작</button>
     </div>
-    <div class="canvas-wrapper">
-      <canvas id="paintCanvas" width="800" height="500"></canvas>
+    <div class="go-board-wrapper">
+      <canvas id="goBoard" width="570" height="570"></canvas>
+    </div>
+    <div class="go-info">
+      <div id="turnInfo">흑돌 차례</div>
+      <div id="resultInfo"></div>
     </div>
     <div class="footer">
-      <span>Made with ♥ by 그림판앱</span>
+      <span>Made with ♥ Go Game</span>
     </div>
   </div>
   <script src="script.js"></script>
